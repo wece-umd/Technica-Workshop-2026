@@ -1,0 +1,32 @@
+const int powerpin = 12;
+const int analogPin = A0;
+// void setup() {
+// pinMode(powerpin, OUTPUT);
+// }
+
+// // blink
+// void loop(){
+//   digitalWrite(powerpin, HIGH);
+//   delay(500);
+//   digitalWrite(powerpin, LOW);
+//   delay(500);
+// }
+
+// photoresistor
+void setup() {
+  Serial.begin(9600);
+  pinMode(powerpin, OUTPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  int sensorValue = analogRead(analogPin);
+  Serial.println(sensorValue);
+  if (sensorValue < 200) {
+    digitalWrite(powerpin, HIGH);
+  }
+  else{
+    digitalWrite(powerpin,LOW);
+  }
+  delay(500);
+}
